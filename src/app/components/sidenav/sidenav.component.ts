@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { DrawerService } from '../../services/drawer.service';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
-  imports: [],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.scss'
 })
