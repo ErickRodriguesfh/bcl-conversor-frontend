@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { DocumentConverterComponent } from './pages/document-converter/document-converter.component';
+import { TicketListComponent } from './features/ticket/components/ticket-list/ticket-list.component';
 
 export const routes: Routes = [
-    {path: 'conversor-documentos', component: DocumentConverterComponent}
+    {path: 'ticket-list', component: TicketListComponent}
 ];
