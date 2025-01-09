@@ -1,18 +1,100 @@
 <section class="grid place-items-center mt-20">
-    <ul class="steps">
-        <li class="step step-primary">Dados de acesso</li>
-        <li class="step step-primary">Dados pessoais</li>
-        <li class="step">Cargos e acessos</li>
-      </ul>
+  <h1 class="mb-5 text-3xl">Cadastro de usuários</h1>
 
-      <div class="card bg-base-100 w-96 shadow-xl mt-10">
-        <div class="card-body">
-          <h2 class="card-title">Criar Usuário</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
+  <ul class="steps">
+    <li *ngFor="let step of steps" [ngClass]="getClassNames(step.isPrimary)">
+      {{ step.title }}
+    </li>
+  </ul>
+
+  <div class="card bg-base-100 shadow-xl mt-10 custom-heigh-card custom-width-card">
+    <div class="card-body">
+      <h2 class="card-title">Criar Usuário</h2>
+      <div *ngIf="stepNumber === 0">
+        <div class="pt-2">
+          <span class="label-text pb-2">Digite o usuário</span>
+          <input type="text" placeholder="Usuário" class="input input-bordered input-primary w-full max-w-xs mt-2" />
+        </div>
+
+        <div class="pt-2">
+          <span class="label-text">Digite a senha</span>
+          <input type="password" placeholder="Senha" class="input input-bordered input-primary w-full max-w-xs mt-2" />
+        </div>
+
+        <div class="pt-2">
+          <span class="label-text">Setor</span>
+          <div>
+            <select class="select select-primary w-full max-w-xs mt-2">
+              <option disabled selected>Selecione uma opção</option>
+              <option>Administrativo</option>
+              <option>Financeiro</option>
+            </select>
           </div>
         </div>
+
+        <div class="pt-2">
+          <span class="label-text">Cargo</span>
+          <div>
+            <select class="select select-primary w-full max-w-xs mt-2">
+              <option disabled selected>Selecione uma opção</option>
+              <option>Analista</option>
+              <option>Supervisor</option>
+              <option>Gestor</option>
+              <option>Diretor</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <span class="label-text">Digite o ramal</span>
+          <input type="number" placeholder="Ramal do setor"
+            class="input input-bordered input-primary w-full max-w-xs mt-2" />
+        </div>
       </div>
+
+      <div class="card-actions justify-end mt-auto mx-auto" *ngIf="stepNumber === 0">
+        <button class="btn btn-primary btn-outline" (click)="increaseStep()">Continuar</button>
+      </div>
+
+      <div *ngIf="stepNumber === 1">
+        <div class="pt-2">
+          <span class="label-text pb-2">Nome colaborador</span>
+          <input type="text" placeholder="Nome" class="input input-bordered input-primary w-full max-w-xs mt-2" />
+        </div>
+
+        <div class="pt-2">
+          <span class="label-text pb-2">E-mail</span>
+          <div>
+            <input type="email" placeholder="E-mail" class="input input-bordered input-primary w-full max-w-xs mt-2" />
+          </div>
+          
+        </div>
+
+        <div class="pt-2">
+          <span class="label-text">Gênero</span>
+          <div>
+            <select class="select select-primary w-full max-w-xs mt-2">
+              <option disabled selected>Selecione uma opção</option>
+              <option>Masculino</option>
+              <option>Feminino</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="pt-2">
+          <span class="label-text pb-2">Data de nascimento</span>
+          <div>
+            <input type="date" placeholder="Data de nascimento"
+              class="input input-bordered input-primary w-full max-w-xs mt-2" />
+          </div>
+        </div>
+
+      </div>
+
+      <div class="card-actions justify-end mt-auto mx-auto" *ngIf="stepNumber === 1">
+        <button class="btn btn-primary btn-outline">Cadastrar</button>
+      </div>
+    </div>
+  </div>
 
 </section>
